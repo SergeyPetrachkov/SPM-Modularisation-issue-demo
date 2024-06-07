@@ -8,17 +8,11 @@ let package = Package(
     products: [
         .library(
             name: "AbstractAnalytics",
-//            type: .dynamic,
+            type: .dynamic,
             targets: ["AbstractAnalytics"]
-        ),
-        .library(
-            name: "AbstractAnalyticsMocks",
-//            type: .dynamic,
-            targets: ["AbstractAnalyticsMocks"]
         )
     ],
     targets: [
-        .target(name: "AbstractAnalytics", path: "./Sources/AbstractAnalytics/"),
-        .target(name: "AbstractAnalyticsMocks", dependencies: ["AbstractAnalytics"], path: "./Mocks/")
+        .target(name: "AbstractAnalytics", path: "./Sources/AbstractAnalytics/")
     ]
 )

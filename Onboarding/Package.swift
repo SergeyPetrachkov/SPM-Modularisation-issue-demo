@@ -2,8 +2,14 @@
 
 import PackageDescription
 
-let analyticsDependency = Target.Dependency.product(name: "AbstractAnalytics", package: "AbstractAnalytics")
-let analyticsMocksDependency = Target.Dependency.product(name: "AbstractAnalyticsMocks", package: "AbstractAnalytics")
+let analyticsDependency = Target.Dependency.product(
+    name: "AbstractAnalytics", 
+    package: "AbstractAnalytics"
+)
+let analyticsMocksDependency = Target.Dependency.product(
+    name: "AbstractAnalyticsMocks",
+    package: "AbstractAnalyticsMocks"
+)
 
 let package = Package(
     name: "Onboarding",
@@ -15,7 +21,8 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../AbstractAnalytics")
+        .package(path: "../AbstractAnalytics"),
+        .package(path: "../AbstractAnalyticsMocks")
     ],
     targets: [
         .target(
@@ -24,7 +31,7 @@ let package = Package(
         ),
         .testTarget(
             name: "OnboardingTests",
-            dependencies: ["Onboarding", analyticsMocksDependency]
+            dependencies: ["Onboarding", analyticsDependency, analyticsMocksDependency]
         ),
     ]
 )
